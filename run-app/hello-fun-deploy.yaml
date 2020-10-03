@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-fun
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: hello-fun
+  template:
+    metadata:
+      labels:
+        app: hello-fun
+    spec:
+      containers:
+      - image: index.io/glenioborges/hello-fun
+        name: hello-fun
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-fun
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: hello-fun
+  type: LoadBalancer
