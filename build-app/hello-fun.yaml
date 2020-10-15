@@ -4,7 +4,7 @@ metadata:
   name: hello-fun
   namespace: default
 spec:
-  tag: glenioborges/hello-fun
+  tag: http://harbor.gdambor.com/library/hello-fun
   builder:
     name: full
     kind: ClusterBuilder

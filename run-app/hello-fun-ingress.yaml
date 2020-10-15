@@ -1,0 +1,14 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: hello-fun-ingress
+  namespace: default
+spec:
+  rules:
+  - host: hello-fun.apps.gdambor.com
+    http:
+      paths:
+      - backend:
+          serviceName: hello-fun-svc
+          servicePort: 80
